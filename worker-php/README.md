@@ -49,7 +49,7 @@ Here's how to send a message using the SDK:
 
 ```php
 // First, instantiate the SDK with your API credentials
-$mg = Mailgun::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
+$mg = Worker::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
 $res = $mg->messages()->send([
     "fromName" => "Zozo EMA",
     "fromEmail"=> "ledinhthi2909@gmail.com",
@@ -92,7 +92,7 @@ If you'd rather work with an array than an object you can inject the `ArrayHydra
 to the Worker class. 
 
 ```php
-$mg = Mailgun::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
+$mg = Worker::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
 $dns = $mg->verifyEmail()->show('email_address');
 ```
 
