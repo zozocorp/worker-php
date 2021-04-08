@@ -49,16 +49,20 @@ Here's how to send a message using the SDK:
 
 ```php
 // First, instantiate the SDK with your API credentials
-$mg = Worker::create('key-example'); // For US servers
-$mg = Worker::create('key-example', 'https://api.eu.worker.net'); // For EU servers
-
-// Now, compose and send your message.
-// $mg->messages()->send($domain, $params);
-$mg->messages()->send('example.com', [
-  'from'    => 'bob@example.com',
-  'to'      => 'sally@example.com',
-  'subject' => 'The PHP SDK is awesome!',
-  'text'    => 'It is so simple to send a message.'
+$mg = Mailgun::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
+$res = $mg->messages()->send([
+    "fromName" => "Zozo EMA",
+    "fromEmail"=> "ledinhthi2909@gmail.com",
+    "to"=> "thild@zozo.vn",
+    "cc"=> "thildph07746@fpt.edu.vn",
+    "template"=> "zozo_send_contact",
+    "bcc"=> "",
+    "contentType"=> "text",
+    "content"=> "xin chào tôi là \n tôi năm nay \n gửi email thành công \n email by le thi ",
+    "subject"=> "Liên hệ từ tieudv 1",
+    "params"=> "",
+    "merchantId" => 0,
+    "merchantName" => "Zozo EMA"
 ]);
 ```
 
@@ -88,17 +92,8 @@ If you'd rather work with an array than an object you can inject the `ArrayHydra
 to the Worker class. 
 
 ```php
-use Worker\Hydrator\ArrayHydrator;
-
-$configurator = new HttpClientConfigurator();
-$configurator->setApiKey('key-example');
-
-$mg = new Worker($configurator, new ArrayHydrator());
-$data = $mg->domains()->show('example.com');
-
-foreach ($data['receiving_dns_records'] as $record) {
-  echo isset($record['record_type']) ? $record['record_type'] : null;
-}
+$mg = Mailgun::create('RVOuocDhKgJY6KXYFomL8kPEuiamZfo8w0XogQsQpCloNBxk1Kl7m0Gfygdy'); 
+$dns = $mg->verifyEmail()->show('email_address');
 ```
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from 
