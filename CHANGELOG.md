@@ -2,6 +2,36 @@
 
 The change log describes what is "Added", "Removed", "Changed" or "Fixed" between each release.
 
+## 3.5.0
+
+### Added
+
+- Support for new webhook endpoints (#609 by @svenbw & #749 by @Nyholm)
+
+## 3.4.1
+
+### Fixed
+
+- Fix double urlencoding (#747 by @uavn)
+
+## 3.4.0
+
+### Added
+
+- Email Validation (#726 by @uavn)
+  - Please note the Email Validation requires **always** to use the US servers. The Worker Team didn't enable this service on the European endpoints.
+
+## 3.3.0
+
+### Added
+
+- Support for PHP 8 (#727 by @DavidGarciaCat)
+- Added `opened`, `clicked`, `unsubscribed` and `stored` to the `TotalResponseItem` (#739 by @Arkitecht)
+
+### Removed
+
+- Support for PHP 7.1 and 7.2 as they both have reached their end of life
+
 ## 3.2.0
 
 ### Added
@@ -94,7 +124,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 ### Added
 
-- Allow to set the Worker server when instantiating the Worker's client: `$worker = Worker::create('key', 'server');`
+- Allow to set the Worker server when instantiating the Worker's client: `$Worker = Worker::create('key', 'server');`
 - Add new PHPUnit tests for our models
 - Add new PHPUnit tests for our API
 - Added `Worker\Api\Attachment`
@@ -190,7 +220,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 ### Added
 
-- Support for sending messages with Mime. `$worker->messages()->sendMime()`
+- Support for sending messages with Mime. `$Worker->messages()->sendMime()`
 
 ## 2.2.0
 

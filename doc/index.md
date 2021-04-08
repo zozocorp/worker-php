@@ -1,7 +1,7 @@
 # API documentation
 
 This page will document the API classes and ways to properly use the API. These resources will eventually move to
-the official documentation at [https://documentation.worker.com](https://documentation.worker.com/api_reference.html).
+the official documentation at [https://documentation.Worker.com](https://documentation.Worker.com/api_reference.html).
 
 Other relevant documentation pages might be:
 
@@ -15,74 +15,74 @@ Other relevant documentation pages might be:
 #### Get a list of all domains
 
 ```php
-$worker->domains()->index();
+$Worker->domains()->index();
 ```
 
 #### Show a single domains
 
 ```php
-$worker->domains()->show('example.com');
+$Worker->domains()->show('example.com');
 ```
 
 #### Verify a domain
 
 ```php
-$worker->domains()->verify('example.com');
+$Worker->domains()->verify('example.com');
 ```
 
 #### Create a new domain
 
 ```php
-$worker->domains()->create('new.example.com', 'password', 'disable', '*');
+$Worker->domains()->create('new.example.com', 'password', 'disable', '*');
 ```
 
 #### Delete a domain
 
 ```php
-$worker->domains()->delete('example.com');
+$Worker->domains()->delete('example.com');
 ```
 
 #### Get credentials for a domain
 
 ```php
-$worker->domains()->credentials('example.com');
+$Worker->domains()->credentials('example.com');
 ```
 
 #### Create credentials for a domain
 
 ```php
-$worker->domains()->createCredential('example.com', 'login', 'password');
+$Worker->domains()->createCredential('example.com', 'login', 'password');
 ```
 
 #### Update credentials for a domain
 
 ```php
-$worker->domains()->updateCredential('example.com', 'login', 'password');
+$Worker->domains()->updateCredential('example.com', 'login', 'password');
 ```
 
 #### Delete credentials for a domain
 
 ```php
-$worker->domains()->deleteCredential('example.com', 'login');
+$Worker->domains()->deleteCredential('example.com', 'login');
 ```
 
 #### Get connection for a domain
 
 ```php
-$worker->domains()->connection('example.com');
+$Worker->domains()->connection('example.com');
 ```
 
 #### Update connection for a domain
 
 ```php
-$worker->domains()->updateConnection('example.com', true, false);
+$Worker->domains()->updateConnection('example.com', true, false);
 ```
 
 ## Event API
 
 #### Get all events for a domain
 ```php
-$worker->events()->get('example.com');
+$Worker->events()->get('example.com');
 ```
 
 ## Message API
@@ -95,7 +95,7 @@ $parameters = [
     'subject' => 'The PHP SDK is awesome!',
     'text'    => 'It is so simple to send a message.'
 ];
-$worker->messages()->send('example.com', $parameters);
+$Worker->messages()->send('example.com', $parameters);
 ```
 #### Send a message with Mime
 
@@ -115,7 +115,7 @@ $message->setBody($messageBody, 'text/html');
 $to = ['admin@example.com', 'user0gmail.com', 'user1@hotmail.com', 'invoice@example.com']
 
 // Send the message
-$worker->messages()->sendMime('example.com', $to, $message->toString(), []);
+$Worker->messages()->sendMime('example.com', $to, $message->toString(), []);
 ```
 
 #### Show a stored message
@@ -124,7 +124,7 @@ If you got an URL to a stored message you may get the details by:
 
 ```php
 $url = // ...
-$worker->messages()->show($url);
+$Worker->messages()->show($url);
 ```
 
 ## Route API
@@ -132,7 +132,7 @@ $worker->messages()->show($url);
 #### Show all routes
 
 ```php
-$worker->routes()->index();
+$Worker->routes()->index();
 ```
 
 #### Show a routes
@@ -140,7 +140,7 @@ $worker->routes()->index();
 Get a route by its ID
 
 ```php
-$worker->routes()->show(4711);
+$Worker->routes()->show(4711);
 ```
 #### Create a route
 
@@ -149,7 +149,7 @@ $expression = "match_recipient('.*@gmail.com')";
 $actions = ["forward('alice@example.com')"];
 $description = 'Test route';
 
-$worker->routes()->create($expression, $actions, $description);
+$Worker->routes()->create($expression, $actions, $description);
 ```
 
 #### Update a route
@@ -159,24 +159,24 @@ $expression = "match_recipient('.*@gmail.com')";
 $actions = ["forward('alice@example.com')"];
 $description = 'Test route';
 
-$worker->routes()->update(4711, $expression, $actions, $description);
+$Worker->routes()->update(4711, $expression, $actions, $description);
 ```
 
 #### Delete a route
 ```php
-$worker->routes()->delete(4711);
+$Worker->routes()->delete(4711);
 ```
 
 ## Stats API
 
 #### Get total stats for a domain
 ```php
-$worker->stats()->total('example.com');
+$Worker->stats()->total('example.com');
 ```
 
 #### Get all stats for a domain
 ```php
-$worker->stats()->all('example.com');
+$Worker->stats()->all('example.com');
 ```
 
 ## Suppression API
@@ -186,107 +186,107 @@ The suppression API consists of 3 parts; `Bounce`, `Complaint` and `Unsubscribe`
 ### Bounce API
 #### Get all bounces
 ```php
-$worker->suppressions()->bounces()->index('example.com');
+$Worker->suppressions()->bounces()->index('example.com');
 ```
 
 #### Show bounces for a specific address
 ```php
-$worker->suppressions()->bounces()->show('example.com', 'alice@gmail.com');
+$Worker->suppressions()->bounces()->show('example.com', 'alice@gmail.com');
 ```
 
 #### Create a bounce
 ```php
-$worker->suppressions()->bounces()->create('example.com', 'alice@gmail.com');
+$Worker->suppressions()->bounces()->create('example.com', 'alice@gmail.com');
 ```
 
 #### Delete a bounce
 ```php
-$worker->suppressions()->bounces()->delete('example.com', 'alice@gmail.com');
+$Worker->suppressions()->bounces()->delete('example.com', 'alice@gmail.com');
 ```
 
 #### Delete all bounces
 ```php
-$worker->suppressions()->bounces()->deleteAll('example.com');
+$Worker->suppressions()->bounces()->deleteAll('example.com');
 ```
 
 ### Complaint API
 #### Get all complaints
 ```php
-$worker->suppressions()->complaints()->index('example.com');
+$Worker->suppressions()->complaints()->index('example.com');
 ```
 
 #### Show complaints for a specific address
 ```php
-$worker->suppressions()->complaints()->show('example.com', 'alice@gmail.com');
+$Worker->suppressions()->complaints()->show('example.com', 'alice@gmail.com');
 ```
 
 #### Create a complaint
 ```php
-$worker->suppressions()->complaints()->create('example.com', 'alice@gmail.com');
+$Worker->suppressions()->complaints()->create('example.com', 'alice@gmail.com');
 ```
 
 #### Delete a complaint
 ```php
-$worker->suppressions()->complaints()->delete('example.com', 'alice@gmail.com');
+$Worker->suppressions()->complaints()->delete('example.com', 'alice@gmail.com');
 ```
 
 #### Delete all complaints
 ```php
-$worker->suppressions()->complaints()->deleteAll('example.com');
+$Worker->suppressions()->complaints()->deleteAll('example.com');
 ```
 
 ## Unsubscribe API
 
 #### Get all unsubscriptions
 ```php
-$worker->suppressions()->unsubscribes()->index('example.com');
+$Worker->suppressions()->unsubscribes()->index('example.com');
 ```
 
 #### Show unsubscriptions for a specific address
 ```php
-$worker->suppressions()->unsubscribes()->show('example.com', 'alice@gmail.com');
+$Worker->suppressions()->unsubscribes()->show('example.com', 'alice@gmail.com');
 ```
 
 #### Create an unsubscription
 ```php
-$worker->suppressions()->unsubscribes()->create('example.com', 'alice@gmail.com');
+$Worker->suppressions()->unsubscribes()->create('example.com', 'alice@gmail.com');
 ```
 
 #### Delete an unsubscription
 ```php
-$worker->suppressions()->unsubscribes()->delete('example.com', 'alice@gmail.com');
+$Worker->suppressions()->unsubscribes()->delete('example.com', 'alice@gmail.com');
 ```
 
 #### Delete all unsubscriptions
 ```php
-$worker->suppressions()->unsubscribes()->deleteAll('example.com');
+$Worker->suppressions()->unsubscribes()->deleteAll('example.com');
 ```
 
 ## Tag API
 
 #### Show all tags
 ```php
-$worker->tags()->index('example.com');
+$Worker->tags()->index('example.com');
 ```
 
 #### Show a single tag
 ```php
-$worker->tags()->show('example.com', 'foo');
+$Worker->tags()->show('example.com', 'foo');
 ```
 
 #### Update a tag
 ```php
-$worker->tags()->update('example.com', 'foo', 'description');
+$Worker->tags()->update('example.com', 'foo', 'description');
 ```
 
 #### Show stats for a tag
 ```php
-$worker->tags()->stats('example.com', 'foo');
+$Worker->tags()->stats('example.com', 'foo');
 ```
 
 #### Delete a tag
 ```php
-$worker->tags()->delete('example.com', 'foo');
+$Worker->tags()->delete('example.com', 'foo');
 ```
 
 ## Webhook API
@@ -297,8 +297,8 @@ $timestamp = $_POST['timestamp'];
 $token = $_POST['token'];
 $signature = $_POST['signature'];
 
-$worker = Worker::create('my_api_key');
-$valid = $worker->webhooks()->verifyWebhookSignature($timestamp, $token, $signature);
+$Worker = Worker::create('my_api_key');
+$valid = $Worker->webhooks()->verifyWebhookSignature($timestamp, $token, $signature);
 
 if (!$valid) {
     // Create a 403 response
@@ -311,25 +311,25 @@ if (!$valid) {
 
 #### Show all webhooks
 ```php
-$worker->webhooks()->index('example.com');
+$Worker->webhooks()->index('example.com');
 ```
 
 #### Show a single webhooks
 ```php
-$worker->webhooks()->show('example.com', 'accept');
+$Worker->webhooks()->show('example.com', 'accept');
 ```
 
 #### Create a webhooks
 ```php
-$worker->webhooks()->create('example.com', 'opened', [ 'https://www.exmple.com/webhook' ]);
+$Worker->webhooks()->create('example.com', 'opened', [ 'https://www.exmple.com/webhook' ]);
 ```
 
 #### Update a webhooks
 ```php
-$worker->webhooks()->update('example.com', 4711, [ 'https://www.exmple.com/webhook' ]);
+$Worker->webhooks()->update('example.com', 4711, [ 'https://www.exmple.com/webhook' ]);
 ```
 
 #### Delete a webhooks
 ```php
-$worker->webhooks()->delete('example.com', 4711);
+$Worker->webhooks()->delete('example.com', 4711);
 ```

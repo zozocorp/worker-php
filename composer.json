@@ -1,5 +1,5 @@
 {
-    "name": "zozocorp/worker/worker-php",
+    "name": "zozocorp/worker-php",
     "description": "The Worker SDK provides methods for all API functions.",
     "require": {
         "php": "^7.1",
@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "zozocorp\\Worker\\worker-php\\": "src/"
+            "zozocorp\\worker-php\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "zozocorp\\Worker\\worker-php\\": "tests/"
+            "zozocorp\\worker-php\\": "tests/"
         }
     },
     "suggest": {
